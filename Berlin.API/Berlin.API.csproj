@@ -1,0 +1,56 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Berlin' ">
+    <StartAction>Project</StartAction>
+    <ExternalConsole>true</ExternalConsole>
+    <LaunchUrl>weatherforecast</LaunchUrl>
+    <ApplicationURL>https://localhost:5001;http://localhost:5000</ApplicationURL>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Berlin.BusinesssLogic\Inquiry.cs" />
+    <Compile Remove="Berlin.BusinesssLogic\MeasureMapperFactory.cs" />
+    <Compile Remove="Berlin.BusinesssLogic\InquiryProcessor.cs" />
+    <Compile Remove="Berlin.BusinesssLogic\ComponentProcessor.cs" />
+    <Compile Remove="Berlin.Tests\UnitTest1.cs" />
+    <Compile Remove="Berlin.Infrastructure\Enums.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Berlin.BusinesssLogic\obj\Berlin.BusinesssLogic.csproj.nuget.g.props" />
+    <None Remove="Berlin.BusinesssLogic\obj\Berlin.BusinesssLogic.csproj.nuget.g.targets" />
+    <None Remove="Berlin.BusinesssLogic\obj\Debug\netstandard2.1\Berlin.BusinesssLogic.csprojAssemblyReference.cache" />
+    <None Remove="Berlin.BusinesssLogic\obj\Debug\netstandard2.1\Berlin.BusinesssLogic.assets.cache" />
+    <None Remove="Berlin.Data\obj\Debug\netstandard2.1\Berlin.Data.csprojAssemblyReference.cache" />
+    <None Remove="Berlin.Data\obj\Debug\netstandard2.1\Berlin.Data.assets.cache" />
+    <None Remove="Berlin.Infrastructure\obj\Debug\netstandard2.1\Berlin.Infrastructure.assets.cache" />
+    <None Remove="Berlin.Tests\obj\Berlin.Tests.csproj.nuget.cache" />
+    <None Remove="Berlin.Tests\obj\Berlin.Tests.csproj.nuget.g.targets" />
+    <None Remove="Berlin.Tests\obj\Berlin.Tests.csproj.nuget.g.props" />
+    <None Remove="Berlin.Tests\obj\Debug\netcoreapp3.1\Berlin.Tests.csprojAssemblyReference.cache" />
+    <None Remove="Berlin.Tests\obj\Debug\netcoreapp3.1\Berlin.Tests.assets.cache" />
+    <None Remove="Berlin.BusinesssLogic\obj\Debug\netstandard2.1\Berlin.BusinesssLogic.csprojAssemblyReference.cache" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Berlin.BusinesssLogic\obj\Berlin.BusinesssLogic.csproj.nuget.dgspec.json" />
+    <Content Remove="Berlin.BusinesssLogic\obj\project.assets.json" />
+    <Content Remove="Berlin.Data\obj\Berlin.Data.csproj.nuget.dgspec.json" />
+    <Content Remove="Berlin.Infrastructure\obj\Berlin.Infrastructure.csproj.nuget.dgspec.json" />
+    <Content Remove="Berlin.Tests\obj\Berlin.Tests.csproj.nuget.dgspec.json" />
+    <Content Remove="Berlin.Tests\obj\project.assets.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Berlin.BusinesssLogic\Berlin.BusinesssLogic.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\Berlin.Data\Berlin.Data.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\Berlin.Infrastructure\Berlin.Infrastructure.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+  </ItemGroup>
+</Project>
