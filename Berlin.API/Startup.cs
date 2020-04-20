@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
+using Swashbuckle;
 
 namespace Berlin
 {
@@ -24,6 +26,10 @@ namespace Berlin
             services.AddControllers();
             services.AddSingleton<IRepo, Repo.Repo>();
             services.AddSingleton<IInquiryProcessor, InquiryProcessor>();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Verivox API", Version = "v1" });
+            });
             //
         }
 
@@ -39,11 +45,18 @@ namespace Berlin
                 app.UseExceptionHandler();
             }
 
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Verivox V1");
+            });
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            //app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

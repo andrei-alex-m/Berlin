@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Berlin.Dto;
 using Berlin.Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -18,11 +19,12 @@ namespace Berlin.Controllers
 
         // GET: api/ProductCompare/5
         [HttpGet(Name = "Get")]
-        public ActionResult<IEnumerable<IProductCost>> Get([FromQuery]long kilowatts,[FromQuery]long months)
+        public async Task<ActionResult<IEnumerable<IProductCost>>> Get([FromQuery]long kilowatts,[FromQuery]long months)
         {
             try
             {
-                return StatusCode(200, _processor.Execute( kilowatts, months ));
+                var result = await Task.Run(() => _processor.Execute(kilowatts, months));
+                return Ok(result);
             }
             catch (Exception ex)
             {
