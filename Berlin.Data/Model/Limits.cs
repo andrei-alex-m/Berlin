@@ -8,7 +8,7 @@ namespace Berlin.Model
     /// </summary>
     public class Limits : ILimits
     {
-        public Limits(long lower = long.MinValue, long upper = long.MaxValue)
+        public Limits(long lower = 0, long upper = long.MaxValue)
         {
             Lower = lower;
             Upper = upper;

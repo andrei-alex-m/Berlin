@@ -17,7 +17,7 @@ namespace Berlin.BusinessLogic.MeasureMappers
             set { _inquiry.Amount = value; }
         }
 
-        public ILimits Measure { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public abstract ILimits Measure { get; set; }
     }
 
     public class MonthMapper : BaseMeasureMapper
@@ -27,7 +27,7 @@ namespace Berlin.BusinessLogic.MeasureMappers
         {
         }
 
-        public new ILimits Measure
+        public override ILimits Measure
         {
             get => _inquiry.MonthLimits;
             set { _inquiry.MonthLimits = value; }
@@ -40,7 +40,7 @@ namespace Berlin.BusinessLogic.MeasureMappers
         {
         }
 
-        public new ILimits Measure
+        public override ILimits Measure
         {
             get => _inquiry.KiloWattLimits;
             set { _inquiry.KiloWattLimits = value; }
